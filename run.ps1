@@ -1,5 +1,5 @@
 param (
-    $AppPath = "$PSScriptRoot\glue\app.py",
+    $AppPath = '.\glue\app.py',
 
     [switch]
     $FlaskDebug
@@ -11,4 +11,4 @@ if ($FlaskDebug) {
 
 $env:FLASK_APP = $AppPath
 
-Start-Process -FilePath 'flask.exe' -ArgumentList @('run')
+Start-Process -FilePath 'flask.exe' -ArgumentList @('run') -WorkingDirectory $PSScriptRoot
