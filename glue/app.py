@@ -1,5 +1,5 @@
 import json
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 
 
 app = Flask(__name__)
@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def handle_root():
-    return render_template("base.html", msg="Everything works, you're incredible.")
+    return render_template("layout.html", msg="Everything works, you're incredible.")
 
 
 @app.route("/about")
@@ -18,8 +18,7 @@ def handle_about():
         "env": app.env,
     }
 
-    return render_template("base.html", msg=about, title="About")
-
+    return render_template("layout.html", msg=about, title="About")
 
 
 if __name__ == "__main__":
