@@ -18,7 +18,8 @@ def handle_about():
         "env": app.env,
     }
 
-    return json.dumps(about)
+    return render_template("base.html", msg=about, title="About")
+
 
 
 if __name__ == "__main__":
