@@ -1,5 +1,6 @@
 import json
 from flask import Flask, render_template, url_for
+from datetime import datetime
 
 
 app = Flask(__name__)
@@ -19,6 +20,35 @@ def handle_about():
     }
 
     return render_template("layout.html", msg=about, title="About")
+
+
+@app.route("/ideas")
+def handle_ideas():
+    ideas = [
+        {
+            "title": "First Idea Here",
+            "content": "Description of idea and steps/links",
+            "tags": ["example", "idea", "foo"],
+            "author": "Devyn",
+            "created": str(datetime.now()),
+        },
+        {
+            "title": "System-generated Idea Here",
+            "content": "Description of idea and steps/links",
+            "tags": ["example", "idea", "bar"],
+            "author": "System",
+            "created": str(datetime.now()),
+        },
+        {
+            "title": "Second Idea Here",
+            "content": "Description of idea and steps/links",
+            "tags": ["example", "idea", "baz"],
+            "author": "Devyn",
+            "created": str(datetime.now()),
+        },
+    ]
+
+    return render_template("layout.html", ideas=ideas, title="Ideas")
 
 
 if __name__ == "__main__":
