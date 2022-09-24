@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def handle_root():
-    return render_template("layout.html", msg="Everything works, you're incredible.")
+    return render_template("main.html", msg="Everything works, you're incredible.")
 
 
 @app.route("/about")
@@ -19,7 +19,7 @@ def handle_about():
         "env": app.env,
     }
 
-    return render_template("layout.html", msg=about, title="About")
+    return render_template("main.html", msg=about, title="About")
 
 
 @app.route("/ideas")
@@ -48,7 +48,7 @@ def handle_ideas():
         },
     ]
 
-    return render_template("layout.html", ideas=ideas, title="Ideas")
+    return render_template("main.html", ideas=ideas, title="Ideas")
 
 
 if __name__ == "__main__":
