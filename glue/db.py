@@ -38,6 +38,19 @@ def init_db_command():
     click.echo("Initializing database...")
 
 
+@click.command("backup-db")
+def backup_db_command():
+    """Copy current database to separate file."""
+    db_path = current_app.config["DATABASE"]
+    backup_path = str(db_path) + ".bak"
+    click.echo(f"Copying database from {db_path} to {backup_path}")
+
+    backup_db = sqlite3.connect(backup_path)
+    db = get_db()
+    db.backup(backup_db)
+
+
 def init_app(app):
     app.teardown_appcontext(close_db)
     app.cli.add_command(init_db_command)
+    app.cli.add_command(backup_db_command)
