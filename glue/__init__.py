@@ -44,4 +44,9 @@ def create_app(config=None):
 
         return render_template("about.html", msg=about, title="About")
 
+    from . import db
+
+    # Add database commands and register close_db with app context teardowns
+    db.init_app(app)
+
     return app
