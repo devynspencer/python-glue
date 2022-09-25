@@ -1,5 +1,6 @@
 /**/static/profile_pics/*
 !/**/static/profile_pics/default.png
+/**/*.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
