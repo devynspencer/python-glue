@@ -4,6 +4,8 @@ FROM python:3.10
 
 # TODO: Structure Dockerfile(s) for multi-app deployments, together with run script and build files
 
+# TODO: FLASK_DEBUG env var not being respected? See issue #52 -- https://github.com/devynspencer/python-glue/issues/52
+
 WORKDIR /app
 COPY . .
 
