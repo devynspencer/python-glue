@@ -9,5 +9,9 @@ COPY . .
 
 RUN pip install -r requirements.txt
 
+ARG FLASK_DEBUG="false"
+ENV FLASK_DEBUG="${FLASK_DEBUG}" \
+    FLASK_SKIP_DOTENV="true"
+
 ENTRYPOINT [ "python" ]
 CMD [ "run.py" ]
