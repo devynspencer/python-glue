@@ -7,9 +7,12 @@ FROM python:3.10
 # TODO: FLASK_DEBUG env var not being respected? See issue #52 -- https://github.com/devynspencer/python-glue/issues/52
 
 WORKDIR /app
-COPY . .
+
+COPY requirements.txt .
 
 RUN pip install -r requirements.txt
+
+COPY . .
 
 ARG FLASK_DEBUG="false"
 ENV FLASK_DEBUG="${FLASK_DEBUG}" \
